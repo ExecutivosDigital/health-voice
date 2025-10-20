@@ -114,12 +114,28 @@ export function Section4() {
             </div>
           ))}
         </div>
-        <button className="group relative mx-auto w-max">
-          <div className="animate-tilt bg-primary absolute -inset-px rounded-3xl opacity-70 blur-md transition duration-1000 group-hover:-inset-0.5 group-hover:opacity-100 group-hover:duration-200" />
-          <span className="bg-primary text-light relative inline-flex w-full items-center justify-center rounded-3xl px-4 py-2 text-lg font-bold transition-all duration-200 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:outline-none">
-            Quero Fazer Parte
-          </span>
-        </button>
+        <div className="flex flex-col gap-2 px-4 xl:flex-row xl:items-center xl:justify-center xl:px-0">
+          <button className="border-light text-light flex h-10 items-center justify-center gap-2 rounded-3xl border px-4 font-semibold xl:justify-normal">
+            <Image
+              src="/icons/play-store.png"
+              alt=""
+              width={100}
+              height={100}
+              className="h-6 w-max object-contain"
+            />
+            Baixar Play Store
+          </button>
+          <button className="border-primary bg-primary text-light flex h-10 items-center justify-center gap-2 rounded-3xl border px-4 font-semibold xl:justify-normal">
+            <Image
+              src="/icons/apple.png"
+              alt=""
+              width={100}
+              height={100}
+              className="h-6 w-max object-contain"
+            />
+            Baixar App Store
+          </button>
+        </div>
       </div>
     </div>
   );

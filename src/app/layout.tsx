@@ -16,7 +16,7 @@ const poppins = Poppins({
 
 export const metadata = {
   title: {
-    default: "Health Club",
+    default: "Health Voice",
   },
   icons: {
     icon: "/icon.png",

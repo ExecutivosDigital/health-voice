@@ -1,4 +1,5 @@
 import { fakerPT_BR } from "@faker-js/faker";
+import { ChevronRight } from "lucide-react";
 import Image from "next/image";
 import {
   Avatar,
@@ -31,10 +32,11 @@ export function Hero() {
               <span className="text-primary font-semibold">você focar </span>
               <span>no paciente e na sua verdadeira vocação.</span>
             </div>
-            <button className="group relative w-max">
+            <button className="group relative hidden w-max xl:block">
               <div className="animate-tilt bg-primary absolute -inset-px rounded-3xl opacity-70 blur-md transition duration-1000 group-hover:-inset-0.5 group-hover:opacity-100 group-hover:duration-200" />
               <span className="bg-primary text-light relative inline-flex w-full items-center justify-center rounded-3xl px-4 py-2 text-lg font-bold transition-all duration-200 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:outline-none">
                 Quero Conhecer
+                <ChevronRight className="stroke-3" />
               </span>
             </button>
           </div>
@@ -63,11 +65,18 @@ export function Hero() {
           </AvatarGroup>
           <div className="font-light">
             <span>Mais de </span>
-            <span className="text-primary font-semibold">1.000 médicos </span>
+            <span className="text-primary font-semibold">100 médicos </span>
             <span> escolheram ser </span>
             <span className="font-semibold">Inteligentes e eficientes</span>
           </div>
         </div>
+        <button className="group relative mx-auto mt-8 w-max xl:hidden">
+          <div className="animate-tilt bg-primary absolute -inset-px rounded-3xl opacity-70 blur-md transition duration-1000 group-hover:-inset-0.5 group-hover:opacity-100 group-hover:duration-200" />
+          <span className="bg-primary text-light relative inline-flex w-full items-center justify-center rounded-3xl px-4 py-2 text-lg font-bold transition-all duration-200 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:outline-none">
+            Quero Conhecer
+            <ChevronRight className="stroke-3" />
+          </span>
+        </button>
       </div>
     </div>
   );
