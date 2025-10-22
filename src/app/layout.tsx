@@ -1,8 +1,7 @@
-import { Header } from "@/components/ui/header";
-import { Sidebar } from "@/components/ui/sidebar";
 import moment from "moment";
 import "moment/locale/pt-br";
 import { Poppins } from "next/font/google";
+import Script from "next/script";
 import { Toaster } from "react-hot-toast";
 import "swiper/css";
 import "./globals.css";
@@ -29,6 +28,16 @@ export default function RootLayout({
 }) {
   return (
     <html className="custom-scrollbar">
+      <head>
+        <meta name="viewport" />
+        <Script id="ms_clarity" strategy="afterInteractive">
+          {`(function(c,l,a,r,i,t,y){
+        c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+        t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+        y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+    })(window, document, "clarity", "script", "tucseh4wc5");`}
+        </Script>
+      </head>
       <body className={`${poppins.variable} bg-bg-1 text-light`}>
         <Toaster
           containerStyle={{
@@ -42,8 +51,6 @@ export default function RootLayout({
             duration: 2000,
           }}
         />
-        <Header />
-        <Sidebar />
         {children}
       </body>
     </html>

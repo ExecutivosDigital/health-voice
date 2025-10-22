@@ -21,7 +21,7 @@ export default function Home() {
   }, []);
 
   return (
-    <div className="flex w-full flex-col">
+    <div className="text-light flex w-full flex-col">
       <Hero />
       <Buffer1 />
       <Section1 />
