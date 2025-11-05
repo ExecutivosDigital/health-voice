@@ -115,7 +115,15 @@ export function Section4() {
           ))}
         </div>
         <div className="flex flex-col gap-2 px-4 xl:flex-row xl:items-center xl:justify-center xl:px-0">
-          <button className="border-light text-light flex h-10 items-center justify-center gap-2 rounded-3xl border px-4 font-semibold xl:justify-normal">
+          <button
+            onClick={() =>
+              window.open(
+                "https://play.google.com/store/apps/details?id=com.executivos.healthvoice",
+                "_blank",
+              )
+            }
+            className="border-light text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold"
+          >
             <Image
               src="/icons/play-store.png"
               alt=""
@@ -125,7 +133,15 @@ export function Section4() {
             />
             Baixar Play Store
           </button>
-          <button className="border-primary bg-primary text-light flex h-10 items-center justify-center gap-2 rounded-3xl border px-4 font-semibold xl:justify-normal">
+          <button
+            onClick={() =>
+              window.open(
+                "https://apps.apple.com/br/app/health-voice/id6754345791",
+                "_blank",
+              )
+            }
+            className="border-primary bg-primary text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold"
+          >
             <Image
               src="/icons/apple.png"
               alt=""

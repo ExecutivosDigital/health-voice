@@ -18,7 +18,15 @@ export function Header() {
       />
       <div className="flex items-center gap-2">
         <div className="hidden items-center gap-2 xl:flex">
-          <button className="border-light text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold">
+          <button
+            onClick={() =>
+              window.open(
+                "https://play.google.com/store/apps/details?id=com.executivos.healthvoice",
+                "_blank",
+              )
+            }
+            className="border-light text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold"
+          >
             <Image
               src="/icons/play-store.png"
               alt=""
@@ -28,7 +36,15 @@ export function Header() {
             />
             Baixar Play Store
           </button>
-          <button className="border-primary bg-primary text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold">
+          <button
+            onClick={() =>
+              window.open(
+                "https://apps.apple.com/br/app/health-voice/id6754345791",
+                "_blank",
+              )
+            }
+            className="border-primary bg-primary text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold"
+          >
             <Image
               src="/icons/apple.png"
               alt=""

@@ -48,7 +48,7 @@ export function Section3() {
             <AccordionContent>
               <div className="font-light">
                 <span>É uma plataforma de </span>
-                <span className="font-semibold">Inteligência Artificial</span>
+                <span className="font-semibold">Inteligência Artificial </span>
                 <span>que </span>
                 <span className="font-semibold">
                   transforma o áudio da sua consulta{" "}
@@ -82,7 +82,7 @@ export function Section3() {
             <AccordionContent>
               <div className="font-light">
                 <span>É uma plataforma de </span>
-                <span className="font-semibold">Inteligência Artificial</span>
+                <span className="font-semibold">Inteligência Artificial </span>
                 <span>que </span>
                 <span className="font-semibold">
                   transforma o áudio da sua consulta{" "}
@@ -117,7 +117,7 @@ export function Section3() {
             <AccordionContent>
               <div className="font-light">
                 <span>É uma plataforma de </span>
-                <span className="font-semibold">Inteligência Artificial</span>
+                <span className="font-semibold">Inteligência Artificial </span>
                 <span>que </span>
                 <span className="font-semibold">
                   transforma o áudio da sua consulta{" "}
@@ -151,7 +151,7 @@ export function Section3() {
             <AccordionContent>
               <div className="font-light">
                 <span>É uma plataforma de </span>
-                <span className="font-semibold">Inteligência Artificial</span>
+                <span className="font-semibold">Inteligência Artificial </span>
                 <span>que </span>
                 <span className="font-semibold">
                   transforma o áudio da sua consulta{" "}
@@ -185,7 +185,7 @@ export function Section3() {
             <AccordionContent>
               <div className="font-light">
                 <span>É uma plataforma de </span>
-                <span className="font-semibold">Inteligência Artificial</span>
+                <span className="font-semibold">Inteligência Artificial </span>
                 <span>que </span>
                 <span className="font-semibold">
                   transforma o áudio da sua consulta{" "}
