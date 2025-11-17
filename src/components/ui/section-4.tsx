@@ -163,7 +163,7 @@ export function Section4() {
                 "_blank",
               )
             }
-            className="border-light text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold"
+            className="border-light text-light flex h-10 items-center justify-center gap-2 rounded-3xl border px-4 font-semibold"
           >
             <Image
               src="/icons/play-store.png"
@@ -181,7 +181,7 @@ export function Section4() {
                 "_blank",
               )
             }
-            className="border-primary bg-primary text-light flex h-10 items-center gap-2 rounded-3xl border px-4 font-semibold"
+            className="border-primary bg-primary text-light flex h-10 items-center justify-center gap-2 rounded-3xl border px-4 font-semibold"
           >
             <Image
               src="/icons/apple.png"

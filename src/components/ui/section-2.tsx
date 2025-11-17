@@ -16,7 +16,7 @@ export function Section2() {
       >
         <div
           className={cn(
-            "text-center text-xl font-light opacity-0 transition delay-[250ms] duration-[600ms] xl:text-5xl",
+            "text-center text-base font-light opacity-0 transition delay-[250ms] duration-[600ms] xl:text-5xl",
             isVisible1.isIntersecting && "translate-y-0 opacity-100",
             !isVisible1.isIntersecting && "translate-y-20 opacity-0",
           )}
