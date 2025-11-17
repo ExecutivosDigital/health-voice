@@ -1,7 +1,12 @@
+import { cn } from "@/utils/cn";
+import useOnScreen from "@/utils/IsOnScreen";
 import { fakerPT_BR } from "@faker-js/faker";
 import Image from "next/image";
+import { useRef } from "react";
 
 export function Section4() {
+  const ref1 = useRef<HTMLDivElement | null>(null);
+  const isVisible1 = useOnScreen(ref1);
   const testimonials = [
     {
       id: "1",
@@ -54,15 +59,30 @@ export function Section4() {
   ];
 
   return (
-    <div className="from-bg-2 to-bg-1 relative flex min-h-screen w-full flex-col overflow-x-hidden bg-gradient-to-b py-20">
+    <div
+      ref={ref1}
+      className="from-bg-2 to-bg-1 relative flex min-h-screen w-full flex-col overflow-x-hidden bg-gradient-to-b py-20"
+    >
       <div className="mx-auto flex h-full max-w-[1280px] flex-1 flex-col gap-4">
-        <div className="group relative mx-auto w-max">
+        <div
+          className={cn(
+            "group relative mx-auto w-max opacity-0 transition delay-[250ms] duration-[600ms]",
+            isVisible1.isIntersecting && "translate-x-0 opacity-100",
+            !isVisible1.isIntersecting && "-translate-x-20 opacity-0",
+          )}
+        >
           <div className="animate-tilt bg-primary absolute -inset-px rounded-3xl opacity-70 blur-md transition duration-1000" />
           <span className="bg-primary text-light relative inline-flex w-full items-center justify-center rounded-3xl px-2 py-1 font-semibold transition-all duration-200 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:outline-none">
             Health Voice é a Escolha Certa
           </span>
         </div>
-        <div className="text-center text-2xl font-light xl:text-4xl">
+        <div
+          className={cn(
+            "text-center text-2xl font-light opacity-0 transition delay-[250ms] duration-[600ms] xl:text-4xl",
+            isVisible1.isIntersecting && "translate-x-0 opacity-100",
+            !isVisible1.isIntersecting && "-translate-x-20 opacity-0",
+          )}
+        >
           <span>O que os </span>
           <span className="font-bold">
             Médicos que Recuperaram o Foco <br />
@@ -70,7 +90,13 @@ export function Section4() {
           <span>têm a dizer sobre a </span>
           <span className="font-bold">Health Voice.</span>
         </div>
-        <div className="text-center font-light">
+        <div
+          className={cn(
+            "text-center font-light opacity-0 transition delay-[250ms] duration-[600ms]",
+            isVisible1.isIntersecting && "translate-x-0 opacity-100",
+            !isVisible1.isIntersecting && "-translate-x-20 opacity-0",
+          )}
+        >
           <span>Nossa I.A. já </span>
           <span className="font-semibold">elevou o nível de eficiência </span>
           <span>e segurança na documentação de </span>
@@ -78,10 +104,19 @@ export function Section4() {
           <span>em todo o país.</span>
         </div>
         <div className="grid w-full gap-4 px-4 xl:grid-cols-3 2xl:px-0">
-          {testimonials.map((t) => (
+          {testimonials.map((t, index) => (
             <div
               key={t.id}
-              className="bg-primary/20 flex h-max flex-col gap-4 rounded-2xl p-4 backdrop-blur-sm"
+              className={cn(
+                `bg-primary/20 flex h-max flex-col gap-4 rounded-2xl p-4 backdrop-blur-sm transition duration-[600ms]`,
+                isVisible1.isIntersecting && "translate-y-0 opacity-100",
+                !isVisible1.isIntersecting && "translate-y-20 opacity-0",
+              )}
+              style={{
+                transitionDelay: isVisible1.isIntersecting
+                  ? `${250 + index * 150}ms`
+                  : "0ms",
+              }}
             >
               <div className="flex items-center gap-2">
                 {Array.from({ length: t.stars }).map((_, index) => (
@@ -114,7 +149,13 @@ export function Section4() {
             </div>
           ))}
         </div>
-        <div className="flex flex-col gap-2 px-4 xl:flex-row xl:items-center xl:justify-center xl:px-0">
+        <div
+          className={cn(
+            "flex flex-col gap-2 px-4 opacity-0 transition delay-[500ms] duration-[600ms] xl:flex-row xl:items-center xl:justify-center xl:px-0",
+            isVisible1.isIntersecting && "translate-y-0 opacity-100",
+            !isVisible1.isIntersecting && "translate-y-20 opacity-0",
+          )}
+        >
           <button
             onClick={() =>
               window.open(

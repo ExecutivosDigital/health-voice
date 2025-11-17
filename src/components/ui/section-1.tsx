@@ -1,12 +1,27 @@
+import { cn } from "@/utils/cn";
+import useOnScreen from "@/utils/IsOnScreen";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
 
 export function Section1() {
+  const ref1 = useRef<HTMLDivElement | null>(null);
+  const isVisible1 = useOnScreen(ref1);
+  const ref2 = useRef<HTMLDivElement | null>(null);
+  const isVisible2 = useOnScreen(ref2);
+
   return (
     <div className="bg-bg-1 relative flex w-full flex-col overflow-x-hidden py-20">
       <div className="bg-primary/5 absolute top-1/2 -right-40 hidden h-[500px] w-[500px] -translate-y-1/2 rounded-full blur-2xl xl:block" />
       <div className="mx-auto flex h-full max-w-[1280px] flex-1 flex-col gap-4">
-        <div className="text-center text-2xl font-light xl:text-5xl">
+        <div
+          ref={ref1}
+          className={cn(
+            "text-center text-2xl font-light opacity-0 transition delay-[250ms] duration-[600ms] xl:text-5xl",
+            isVisible1.isIntersecting && "translate-y-0 opacity-100",
+            !isVisible1.isIntersecting && "translate-y-20 opacity-0",
+          )}
+        >
           <span>O que a </span>
           <span className="font-semibold">Health Voice </span>
           <span>faz </span>
@@ -20,7 +35,13 @@ export function Section1() {
           <span>que a Medicina Exige.</span>
         </div>
         <div className="flex flex-col items-center justify-between gap-4 xl:flex-row xl:gap-0">
-          <div className="h-full w-4/5 px-4 xl:w-1/2 2xl:px-0">
+          <div
+            className={cn(
+              "h-full w-4/5 px-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:w-1/2 2xl:px-0",
+              isVisible1.isIntersecting && "translate-x-0 opacity-100",
+              !isVisible1.isIntersecting && "-translate-x-20 opacity-0",
+            )}
+          >
             <Image
               src="/static/section-1.png"
               alt=""
@@ -29,7 +50,13 @@ export function Section1() {
               className="h-max w-full object-contain xl:w-4/5"
             />
           </div>
-          <div className="flex h-full w-full items-end justify-end px-4 xl:w-1/2 2xl:px-0">
+          <div
+            className={cn(
+              "flex h-full w-full items-end justify-end px-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:w-1/2 2xl:px-0",
+              isVisible1.isIntersecting && "translate-x-0 opacity-100",
+              !isVisible1.isIntersecting && "translate-x-20 opacity-0",
+            )}
+          >
             <div className="flex w-full flex-col gap-4 xl:w-4/5">
               <span className="w-full text-2xl font-bold xl:text-4xl">
                 Prontuário Perfeito, Sem Esforço.
@@ -67,8 +94,17 @@ export function Section1() {
             </div>
           </div>
         </div>
-        <div className="mt-8 flex flex-col-reverse items-center justify-between gap-4 xl:mt-0 xl:flex-row xl:gap-0">
-          <div className="flex h-full w-full items-start justify-start px-4 xl:w-1/2 2xl:px-0">
+        <div
+          ref={ref2}
+          className="mt-8 flex flex-col-reverse items-center justify-between gap-4 xl:mt-0 xl:flex-row xl:gap-0"
+        >
+          <div
+            className={cn(
+              "flex h-full w-full items-start justify-start px-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:w-1/2 2xl:px-0",
+              isVisible2.isIntersecting && "translate-x-0 opacity-100",
+              !isVisible2.isIntersecting && "-translate-x-20 opacity-0",
+            )}
+          >
             <div className="flex w-full flex-col gap-4 xl:w-4/5">
               <span className="w-full text-2xl font-bold xl:text-4xl">
                 Zero risco de Falha no Acompanhamento.
@@ -98,7 +134,13 @@ export function Section1() {
               </button>
             </div>
           </div>
-          <div className="h-full w-4/5 px-4 xl:w-1/2 2xl:px-0">
+          <div
+            className={cn(
+              "h-full w-4/5 px-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:w-1/2 2xl:px-0",
+              isVisible2.isIntersecting && "translate-x-0 opacity-100",
+              !isVisible2.isIntersecting && "translate-x-20 opacity-0",
+            )}
+          >
             <Image
               src="/static/section-2.png"
               alt=""

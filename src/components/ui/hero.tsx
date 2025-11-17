@@ -1,6 +1,9 @@
+import useOnScreen from "@/utils/IsOnScreen";
+import { cn } from "@/utils/cn";
 import { fakerPT_BR } from "@faker-js/faker";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
 import {
   Avatar,
   AvatarFallback,
@@ -9,11 +12,23 @@ import {
 } from "./blocks/avatar";
 
 export function Hero() {
+  const ref1 = useRef<HTMLDivElement | null>(null);
+  const isVisible1 = useOnScreen(ref1);
+
   return (
-    <div className="from-bg-1 to-bg-2 flex min-h-[calc(100vh-128px)] w-full flex-col bg-gradient-to-b">
+    <div
+      ref={ref1}
+      className="from-bg-1 to-bg-2 flex min-h-[calc(100vh-128px)] w-full flex-col bg-gradient-to-b"
+    >
       <div className="mx-auto flex h-full max-w-[1280px] flex-1 flex-col justify-center">
         <div className="flex h-full w-full flex-col gap-4 pt-20 xl:flex-row xl:items-center">
-          <div className="flex flex-1 flex-col gap-2 p-4 xl:gap-4 2xl:p-0">
+          <div
+            className={cn(
+              "flex flex-1 flex-col gap-2 p-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:gap-4 2xl:p-0",
+              isVisible1.isIntersecting && "translate-x-0 opacity-100",
+              !isVisible1.isIntersecting && "-translate-x-20 opacity-0",
+            )}
+          >
             <div className="text-3xl font-light xl:text-5xl">
               <span className="font-bold">Relatórios Médicos </span>
               <span>Inteligentes, Organizados e </span>
@@ -40,7 +55,13 @@ export function Hero() {
               </span>
             </button>
           </div>
-          <div className="relative mx-auto flex h-full w-4/5 items-center justify-center px-4 xl:mx-0 xl:w-2/5 2xl:px-0">
+          <div
+            className={cn(
+              "relative mx-auto flex h-full w-4/5 items-center justify-center px-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:mx-0 xl:w-2/5 2xl:px-0",
+              isVisible1.isIntersecting && "translate-x-0 opacity-100",
+              !isVisible1.isIntersecting && "translate-x-20 opacity-0",
+            )}
+          >
             <Image
               src="/static/hero-1.png"
               alt=""
@@ -51,7 +72,13 @@ export function Hero() {
             <div className="bg-light/5 absolute top-1/2 left-1/2 hidden h-80 w-80 -translate-x-1/2 -translate-y-1/2 rounded-full blur-3xl xl:block" />
           </div>
         </div>
-        <div className="flex flex-col gap-2 px-4 xl:flex-row xl:items-center 2xl:px-0">
+        <div
+          className={cn(
+            "flex flex-col gap-2 px-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:flex-row xl:items-center 2xl:px-0",
+            isVisible1.isIntersecting && "translate-x-0 opacity-100",
+            !isVisible1.isIntersecting && "-translate-x-20 opacity-0",
+          )}
+        >
           <AvatarGroup countClass="w-8 h-8" total={5}>
             {Array.from({ length: 5 }).map((_, i: number) => (
               <Avatar

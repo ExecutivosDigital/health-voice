@@ -1,11 +1,26 @@
+import { cn } from "@/utils/cn";
+import useOnScreen from "@/utils/IsOnScreen";
 import { ChevronRight } from "lucide-react";
 import Image from "next/image";
+import { useRef } from "react";
 
 export function Section2() {
+  const ref1 = useRef<HTMLDivElement | null>(null);
+  const isVisible1 = useOnScreen(ref1);
+
   return (
     <div className="from-bg-2 to-bg-1 relative flex w-full flex-col overflow-x-hidden bg-gradient-to-b py-10 xl:py-20">
-      <div className="mx-auto flex h-full max-w-[1280px] flex-1 flex-col gap-4 xl:gap-16">
-        <div className="text-center text-xl font-light xl:text-5xl">
+      <div
+        ref={ref1}
+        className="mx-auto flex h-full max-w-[1280px] flex-1 flex-col gap-4 xl:gap-16"
+      >
+        <div
+          className={cn(
+            "text-center text-xl font-light opacity-0 transition delay-[250ms] duration-[600ms] xl:text-5xl",
+            isVisible1.isIntersecting && "translate-y-0 opacity-100",
+            !isVisible1.isIntersecting && "translate-y-20 opacity-0",
+          )}
+        >
           <span className="font-semibold">Transcrição </span>
           <span>100% precisa no </span>
           <span className="font-semibold">
@@ -17,7 +32,13 @@ export function Section2() {
           <span>cada detalhe da </span>
           <span className="font-semibold">consulta.</span>
         </div>
-        <div className="grid w-full gap-4 px-4 xl:grid-cols-4 xl:gap-16 xl:px-0">
+        <div
+          className={cn(
+            "grid w-full gap-4 px-4 opacity-0 transition delay-[250ms] duration-[600ms] xl:grid-cols-4 xl:gap-16 xl:px-0",
+            isVisible1.isIntersecting && "translate-y-0 opacity-100",
+            !isVisible1.isIntersecting && "translate-y-20 opacity-0",
+          )}
+        >
           <div className="relative flex h-48 items-center justify-center overflow-hidden rounded-2xl xl:col-span-1 xl:h-80">
             <Image
               src="/static/doctor-1.png"
@@ -79,7 +100,13 @@ export function Section2() {
             </div>
           </div>
         </div>
-        <button className="group relative mx-auto w-max">
+        <button
+          className={cn(
+            "group relative mx-auto w-max opacity-0 transition delay-[250ms] duration-[600ms]",
+            isVisible1.isIntersecting && "translate-y-0 opacity-100",
+            !isVisible1.isIntersecting && "translate-y-20 opacity-0",
+          )}
+        >
           <div className="animate-tilt bg-primary absolute -inset-px rounded-3xl opacity-70 blur-md transition duration-1000 group-hover:-inset-0.5 group-hover:opacity-100 group-hover:duration-200" />
           <span className="bg-primary text-light relative inline-flex w-full items-center justify-center rounded-3xl px-4 py-2 text-lg font-bold transition-all duration-200 focus:ring-2 focus:ring-gray-900 focus:ring-offset-2 focus:outline-none">
             Começar Agora

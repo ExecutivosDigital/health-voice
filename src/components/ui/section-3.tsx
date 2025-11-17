@@ -1,4 +1,7 @@
+import { cn } from "@/utils/cn";
+import useOnScreen from "@/utils/IsOnScreen";
 import Image from "next/image";
+import { useRef } from "react";
 import {
   Accordion,
   AccordionContent,
@@ -7,10 +10,22 @@ import {
 } from "./blocks/accordion";
 
 export function Section3() {
+  const ref1 = useRef<HTMLDivElement | null>(null);
+  const isVisible1 = useOnScreen(ref1);
+
   return (
     <div className="from-bg-1 to-bg-2 relative flex min-h-[80vh] w-full flex-col overflow-x-hidden bg-gradient-to-b py-20">
-      <div className="bg-primary/5 absolute top-1/2 -left-40 hidden h-[500px] w-[500px] -translate-y-1/2 rounded-full blur-2xl xl:block" />
-      <div className="mx-auto flex h-full max-w-[1280px] flex-1 flex-col gap-4 px-4 2xl:px-0">
+      <div
+        ref={ref1}
+        className="bg-primary/5 absolute top-1/2 -left-40 hidden h-[500px] w-[500px] -translate-y-1/2 rounded-full blur-2xl xl:block"
+      />
+      <div
+        className={cn(
+          "mx-auto flex h-full max-w-[1280px] flex-1 flex-col gap-4 px-4 opacity-0 transition delay-[250ms] duration-[600ms] 2xl:px-0",
+          isVisible1.isIntersecting && "translate-y-0 opacity-100",
+          !isVisible1.isIntersecting && "translate-y-20 opacity-0",
+        )}
+      >
         <div className="flex flex-col text-center text-3xl font-light xl:text-5xl">
           <span className="text-primary font-bold">Investimento Certo</span>
           <span>Tire Suas Últimas Dúvidas.</span>
